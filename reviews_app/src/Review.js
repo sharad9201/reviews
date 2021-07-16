@@ -37,6 +37,18 @@ const Review = () => {
             return checkNumber(newIndex)
         })
     }
+
+    // here comes the random button logic
+
+    const randomPerson =()=>{
+       let randomNumber= Math.floor(Math.random() *people.length)
+       if(randomNumber === index){
+        randomNumber= index+1
+     }
+     //checking if the number exceeds the data in the database
+        setIndex(checkNumber(randomNumber))
+    }
+    
     return <article className="review">
         <div className="img-container">
             <img src={image} alt={name} className='person-img'/>
@@ -55,7 +67,7 @@ const Review = () => {
                     <FaChevronRight/>
                 </button>
                 </div>
-                <button className="random-btn">Suprise me</button>
+                <button className="random-btn" onClick={randomPerson}>Suprise me</button>
            
         
     </article>;
